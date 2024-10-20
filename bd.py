@@ -6,6 +6,6 @@ ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like 
 
 video_url = st.text_input("url")
 res = requests.get(video_url, headers={"User-Agent":ua})
-match = re.search(r"video_url: '(.*)', ", res.text, re.I|re.M)
+match = re.search(r"video_url: '(.*?)', ", res.text, re.I|re.M)
 st.code(match.group(1), language="html")
 res.close()
