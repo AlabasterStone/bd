@@ -6,7 +6,7 @@ ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like 
 
 video_url = st.text_input("url")
 res = requests.get(video_url, headers={"User-Agent":ua})
-#st.code(res.text)
+st.code(res.text)
 match = re.search(r"video_url: '(.*?)', ", res.text, re.I|re.M)
 vid = match.group(1)
 st.code(vid)
@@ -15,3 +15,4 @@ next = res.headers.get('Location')
 st.code(next)
 res = requests.get(next, headers={"User-Agent":ua}, allow_redirects=False)
 st.code(res.headers.get('Location'))
+
